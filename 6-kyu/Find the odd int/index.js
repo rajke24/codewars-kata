@@ -4,7 +4,8 @@ function findOdd(arr) {
         nums[el] ? nums[el]++ : nums[el] = 1
     })
     
-    Object.values(nums).forEach(el => {
-        if(el % 2 !== 0) return el
-    })
+    let index = Object.values(nums).findIndex(el => el % 2 !== 0)
+    return Object.keys(nums)[index]
+
+
   }
