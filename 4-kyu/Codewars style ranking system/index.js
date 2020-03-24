@@ -20,20 +20,20 @@ class User{
        
         let diff = 0
         if(taskRank > 0 && this.rank < 0) {
-            diff = taskRank - this.rank + 1
-        }else diff = taskRank - this.rank 
+            diff = taskRank - this.rank - 1
+        }else if(taskRank === -1 && this.rank === 1) diff = -1 
+        else diff = taskRank - this.rank 
+        
         if(diff === 0) this.progress += 3
         if(diff === -1 ) this.progress += 1
         if(diff >= 1) this.progress += diff * diff * 10
 
         if (this.progress >= 100 ) {
-            let ranksUp = Math.floor(this.progress / 100)
-            for(let i = 0; i < ranksUp; i++){
-                if(this.rank === -1) this.rank += 2
-                else this.rank++
-            }
-            this.progress = this.progress % 100
+           this.rank += Math.floor(this.progress / 100)
+           if(this.rank === 0) this.rank++
+           this.progress %= 100
         }
         if(this.rank === this.highestRank) this.progress = 0
+    }
 }
-}
+
