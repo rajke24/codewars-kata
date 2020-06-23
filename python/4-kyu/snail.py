@@ -7,7 +7,3 @@ def snail(array):
         array = list(zip(*array))
         array.reverse()
     return a
-
-arr = np.array([[1,10,3,5,6,7],[4,5,6]])
-print(arr)
-print(np.argmax(arr[0][::-1]))
