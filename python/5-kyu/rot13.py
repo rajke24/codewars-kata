@@ -1,4 +1,3 @@
-import string
 import codecs
 
 def rot13(msg):
